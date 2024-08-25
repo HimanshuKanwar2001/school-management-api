@@ -1,0 +1,965 @@
+{
+	"info": {
+		"_postman_id": "fe40d0e4-01bb-4d1b-88ff-5a38ed8921a9",
+		"name": "school Management Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37277769",
+		"_collection_link": "https://red-astronaut-107099.postman.co/workspace/My-Workspace~40fc50bd-bfa3-4536-8db0-60f351a8dd94/collection/37277769-fe40d0e4-01bb-4d1b-88ff-5a38ed8921a9?action=share&source=collection_link&creator=37277769"
+	},
+	"item": [
+		{
+			"name": "addSchool",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 201\", function () {",
+							"    pm.expect(pm.response.code).to.equal(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields - message and schoolId\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.message).to.exist;",
+							"    pm.expect(responseData.schoolId).to.exist;",
+							"});",
+							"",
+							"",
+							"pm.test(\"SchoolId is a non-negative integer\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData.schoolId).to.be.a('number').and.to.be.at.least(0);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type is application/json\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Message is a non-empty string\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData.message).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Message should not be empty\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"School B\",\r\n  \"address\": \"456 Elm St\",\r\n  \"latitude\": 40.7306,\r\n  \"longitude\": -73.9352\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/addSchool",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"addSchool"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/addSchool",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 201\", function () {",
+							"    pm.expect(pm.response.code).to.equal(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields - message and schoolId\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.message).to.exist;",
+							"    pm.expect(responseData.schoolId).to.exist;",
+							"});",
+							"",
+							"",
+							"pm.test(\"SchoolId is a non-negative integer\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData.schoolId).to.be.a('number');",
+							"    pm.expect(responseData.schoolId).to.be.at.least(0);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type header is application/json\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Message is a non-empty string\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData.message).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Message should be a non-empty string\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"School B\",\r\n  \"address\": \"456 Elm St\",\r\n  \"latitude\": 40.7306,\r\n  \"longitude\": -73.9352\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/addSchool",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"addSchool"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:3000/api/addSchool",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"School B\",\r\n  \"address\": \"456 Elm St\",\r\n  \"latitude\": 40.7306,\r\n  \"longitude\": -73.9352\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/addSchool",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"addSchool"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"35-4D8FEh7mUHHAdn5KOU4do2Kbd+U\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Aug 2024 03:07:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"School added successfully\",\n    \"schoolId\": 44\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/api/listSchools?latitude=40.7128&longitude=-74.0060",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields - id, name, address, latitude, longitude, and distance\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('array').that.is.not.empty;",
+							"    ",
+							"    responseData.forEach(function(school) {",
+							"        pm.expect(school).to.have.property('id');",
+							"        pm.expect(school).to.have.property('name');",
+							"        pm.expect(school).to.have.property('address');",
+							"        pm.expect(school).to.have.property('latitude');",
+							"        pm.expect(school).to.have.property('longitude');",
+							"        pm.expect(school).to.have.property('distance');",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Latitude and longitude are in valid format\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData).to.be.an('array');",
+							"  responseData.forEach(function(school) {",
+							"    pm.expect(school.latitude).to.be.a('number');",
+							"    pm.expect(school.longitude).to.be.a('number');",
+							"  });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Distance is a non-negative integer\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('array');",
+							"    responseData.forEach(function(school) {",
+							"        pm.expect(school.distance).to.be.a('number');",
+							"        pm.expect(school.distance).to.be.at.least(0);",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type header is application/json\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"School D\",\r\n  \"address\": \"456 Elm St\",\r\n  \"latitude\": 41.7306,\r\n  \"longitude\": -78.9352\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/listSchools?latitude=40.7128&longitude=-74.0060",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"listSchools"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "40.7128"
+						},
+						{
+							"key": "longitude",
+							"value": "-74.0060"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:3000/api/listSchools?latitude=40.7128&longitude=-74.0060",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"School D\",\r\n  \"address\": \"456 Elm St\",\r\n  \"latitude\": 41.7306,\r\n  \"longitude\": -78.9352\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/listSchools?latitude=40.7128&longitude=-74.0060",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"listSchools"
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "40.7128"
+								},
+								{
+									"key": "longitude",
+									"value": "-74.0060"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "6335"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"18bf-huDISyiKG8aqJEvrwL3T4zs8KR4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Aug 2024 03:50:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"School A\",\n        \"address\": \"123 Main St\",\n        \"latitude\": 40.712799072265625,\n        \"longitude\": -74.00599670410156,\n        \"distance\": 0.00029632899344464057\n    },\n    {\n        \"id\": 7,\n        \"name\": \"School A\",\n        \"address\": \"123 Main St\",\n        \"latitude\": 40.712799072265625,\n        \"longitude\": -74.00599670410156,\n        \"distance\": 0.00029632899344464057\n    },\n    {\n        \"id\": 12,\n        \"name\": \"School A\",\n        \"address\": \"123 Main St\",\n        \"latitude\": 40.712799072265625,\n        \"longitude\": -74.00599670410156,\n        \"distance\": 0.00029632899344464057\n    },\n    {\n        \"id\": 17,\n        \"name\": \"School A\",\n        \"address\": \"123 Main St\",\n        \"latitude\": 40.712799072265625,\n        \"longitude\": -74.00599670410156,\n        \"distance\": 0.00029632899344464057\n    },\n    {\n        \"id\": 22,\n        \"name\": \"School A\",\n        \"address\": \"123 Main St\",\n        \"latitude\": 40.712799072265625,\n        \"longitude\": -74.00599670410156,\n        \"distance\": 0.00029632899344464057\n    },\n    {\n        \"id\": 27,\n        \"name\": \"School A\",\n        \"address\": \"123 Main St\",\n        \"latitude\": 40.712799072265625,\n        \"longitude\": -74.00599670410156,\n        \"distance\": 0.00029632899344464057\n    },\n    {\n        \"id\": 35,\n        \"name\": \"School A\",\n        \"address\": \"123 Main St\",\n        \"latitude\": 40.712799072265625,\n        \"longitude\": -74.00599670410156,\n        \"distance\": 0.00029632899344464057\n    },\n    {\n        \"id\": 2,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 10,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 15,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 20,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 25,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 30,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 31,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 32,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 33,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 38,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 39,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 40,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 43,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 44,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 3,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 9,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 14,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 19,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 24,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 29,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 37,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 42,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 4,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 5,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 6,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 8,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 11,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 13,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 16,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 18,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 21,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 23,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 26,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 28,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 34,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 36,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 41,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 45,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/api/addSchool",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 201\", function () {",
+							"    pm.expect(pm.response.code).to.equal(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields - message and schoolId\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.have.property('message');",
+							"    pm.expect(responseData).to.have.property('schoolId');",
+							"});",
+							"",
+							"",
+							"pm.test(\"SchoolId is a non-negative integer\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData.schoolId).to.be.a('number');",
+							"    pm.expect(responseData.schoolId).to.be.at.least(0);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content type is application/json\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Message is a non-empty string\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData).to.be.an('object');",
+							"  pm.expect(responseData.message).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"School D\",\r\n  \"address\": \"456 Elm St\",\r\n  \"latitude\": 41.7306,\r\n  \"longitude\": -78.9352\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/addSchool",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"addSchool"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:3000/api/addSchool",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"School D\",\r\n  \"address\": \"456 Elm St\",\r\n  \"latitude\": 41.7306,\r\n  \"longitude\": -78.9352\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/addSchool",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"addSchool"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"35-WmFLNcz77LcTBXuSM5uD3UPiG8I\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Aug 2024 03:07:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"School added successfully\",\n    \"schoolId\": 45\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/api/addSchool",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields - message and schoolId\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.message).to.exist;",
+							"    pm.expect(responseData.schoolId).to.exist;",
+							"});",
+							"",
+							"",
+							"pm.test(\"SchoolId is a non-negative integer\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData.schoolId).to.be.a('number');",
+							"    pm.expect(responseData.schoolId).to.be.at.least(0);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type header is application/json\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Message is a non-empty string\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.message).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Message should not be empty\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"School C\",\r\n  \"address\": \"789 Oak St\",\r\n  \"latitude\": 40.7357,\r\n  \"longitude\": -74.1724\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/addSchool",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"addSchool"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:3000/api/addSchool",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"School F\",\r\n  \"address\": \"789 Oak St\",\r\n  \"latitude\": 30.7357,\r\n  \"longitude\": -64.1724\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/addSchool",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"addSchool"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"35-fQSY0r7nKJvGGhG66++G4aCgE44\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Aug 2024 03:54:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"School added successfully\",\n    \"schoolId\": 46\n}"
+				},
+				{
+					"name": "http://localhost:3000/api/addSchool",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"School E\",\r\n  \"address\": \"789 Oak St\",\r\n  \"latitude\": 50.7357,\r\n  \"longitude\": -60.1724\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/addSchool",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"addSchool"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"35-qTo7Drn0/TJp5gLj1apcn/YAN24\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Aug 2024 03:54:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"School added successfully\",\n    \"schoolId\": 47\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/api/addSchool",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 201\", function () {",
+							"    pm.expect(pm.response.code).to.equal(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields - message and schoolId\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.message).to.exist;",
+							"    pm.expect(responseData.schoolId).to.exist;",
+							"});",
+							"",
+							"",
+							"pm.test(\"SchoolId is a non-negative integer\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData.schoolId).to.be.a('number');",
+							"    pm.expect(responseData.schoolId).to.be.at.least(0, \"SchoolId should be non-negative\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type is application/json\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Message is a non-empty string\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData.message).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Message should not be empty\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"School B\",\r\n  \"address\": \"456 Elm St\",\r\n  \"latitude\": 40.7306,\r\n  \"longitude\": -73.9352\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/addSchool",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"addSchool"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/listSchools?latitude=40.7128&longitude=-74.0060",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.an('array');",
+							"    responseData.forEach(school => {",
+							"        pm.expect(school).to.have.property('id');",
+							"        pm.expect(school).to.have.property('name');",
+							"        pm.expect(school).to.have.property('address');",
+							"        pm.expect(school).to.have.property('latitude');",
+							"        pm.expect(school).to.have.property('longitude');",
+							"        pm.expect(school).to.have.property('distance');",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Latitude and longitude are within valid range\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData).to.be.an('array');",
+							"  responseData.forEach(function(school) {",
+							"    pm.expect(school.latitude).to.be.within(-90, 90);",
+							"    pm.expect(school.longitude).to.be.within(-180, 180);",
+							"  });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Distance is a non-negative number\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('array');",
+							"    ",
+							"    responseData.forEach(function(school) {",
+							"        pm.expect(school.distance).to.be.a('number');",
+							"        pm.expect(school.distance).to.be.at.least(0, \"Distance should be a non-negative number\");",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type header is 'application/json'\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"School D\",\r\n  \"address\": \"456 Elm St\",\r\n  \"latitude\": 41.7306,\r\n  \"longitude\": -78.9352\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/listSchools?latitude=40.7128&longitude=-74.0060",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"listSchools"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "40.7128"
+						},
+						{
+							"key": "longitude",
+							"value": "-74.0060"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:3000/api/listSchools?latitude=40.7128&longitude=-74.0060",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"School D\",\r\n  \"address\": \"456 Elm St\",\r\n  \"latitude\": 41.7306,\r\n  \"longitude\": -78.9352\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/listSchools?latitude=40.7128&longitude=-74.0060",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"listSchools"
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "40.7128"
+								},
+								{
+									"key": "longitude",
+									"value": "-74.0060"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "6619"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19db-K9Fqw+O5GsIgu9/CSlaZjm3uksI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Aug 2024 03:54:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"School A\",\n        \"address\": \"123 Main St\",\n        \"latitude\": 40.712799072265625,\n        \"longitude\": -74.00599670410156,\n        \"distance\": 0.00029632899344464057\n    },\n    {\n        \"id\": 7,\n        \"name\": \"School A\",\n        \"address\": \"123 Main St\",\n        \"latitude\": 40.712799072265625,\n        \"longitude\": -74.00599670410156,\n        \"distance\": 0.00029632899344464057\n    },\n    {\n        \"id\": 12,\n        \"name\": \"School A\",\n        \"address\": \"123 Main St\",\n        \"latitude\": 40.712799072265625,\n        \"longitude\": -74.00599670410156,\n        \"distance\": 0.00029632899344464057\n    },\n    {\n        \"id\": 17,\n        \"name\": \"School A\",\n        \"address\": \"123 Main St\",\n        \"latitude\": 40.712799072265625,\n        \"longitude\": -74.00599670410156,\n        \"distance\": 0.00029632899344464057\n    },\n    {\n        \"id\": 22,\n        \"name\": \"School A\",\n        \"address\": \"123 Main St\",\n        \"latitude\": 40.712799072265625,\n        \"longitude\": -74.00599670410156,\n        \"distance\": 0.00029632899344464057\n    },\n    {\n        \"id\": 27,\n        \"name\": \"School A\",\n        \"address\": \"123 Main St\",\n        \"latitude\": 40.712799072265625,\n        \"longitude\": -74.00599670410156,\n        \"distance\": 0.00029632899344464057\n    },\n    {\n        \"id\": 35,\n        \"name\": \"School A\",\n        \"address\": \"123 Main St\",\n        \"latitude\": 40.712799072265625,\n        \"longitude\": -74.00599670410156,\n        \"distance\": 0.00029632899344464057\n    },\n    {\n        \"id\": 2,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 10,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 15,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 20,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 25,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 30,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 31,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 32,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 33,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 38,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 39,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 40,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 43,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 44,\n        \"name\": \"School B\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 40.73059844970703,\n        \"longitude\": -73.9352035522461,\n        \"distance\": 6.285928894010973\n    },\n    {\n        \"id\": 3,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 9,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 14,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 19,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 24,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 29,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 37,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 42,\n        \"name\": \"School C\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 40.73569869995117,\n        \"longitude\": -74.17240142822266,\n        \"distance\": 14.251940669598985\n    },\n    {\n        \"id\": 4,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 5,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 6,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 8,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 11,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 13,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 16,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 18,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 21,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 23,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 26,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 28,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 34,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 36,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 41,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 45,\n        \"name\": \"School D\",\n        \"address\": \"456 Elm St\",\n        \"latitude\": 41.73059844970703,\n        \"longitude\": -78.9352035522461,\n        \"distance\": 427.44520539911554\n    },\n    {\n        \"id\": 46,\n        \"name\": \"School F\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 30.735700607299805,\n        \"longitude\": -64.17240142822266,\n        \"distance\": 1418.8140441417413\n    },\n    {\n        \"id\": 47,\n        \"name\": \"School E\",\n        \"address\": \"789 Oak St\",\n        \"latitude\": 50.73569869995117,\n        \"longitude\": -60.172401428222656,\n        \"distance\": 1542.7729578841368\n    }\n]"
+				}
+			]
+		}
+	]
+}
